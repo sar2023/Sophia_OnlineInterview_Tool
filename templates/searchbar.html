@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid" style="margin-top: 10px; margin-left: 50px;">
+    <div class="row">
+        <div class="col-sm">
+        </div>
+        <div class="col-sm">
+        </div>
+        <div class="col-sm-3" style="text-align:center ;">
+            <a class="btn btn-primary" style="text-align:center;" href="{% url 'allAnswer' %}"
+                role="button">Back</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid" style="margin-top:20px ;margin-left: 50px;">
+    <div class="row">
+        <div class="col">
+            <h3>{{ result.user_name }}</h3>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid" style="margin-top:10px ;">
+    {% for result in result.all reversed %}
+{% if forloop.first %}<div class="row">{% endif %}
+    <div style=" margin-left: 10px; padding-top: 10px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    padding-left: 50px;" class="col-xs-4">
+        <video width="320" height="240" controls>
+            <!-- <source src="{{ video.videoUrl }}" type="video/webm"><br> -->
+
+            <source src="http://127.0.0.1:8000/media/{{ video.videoAns }}" type="video/webm">
+        </video>
+        <h6>User Name : {{ result.user_name }}</h6><hr>
+    </div>
+    {% if forloop.counter|divisibleby:3 %}
+</div>
+<div class="row">{% endif %}
+    {% if forloop.last %}</div>{% endif %}
+{% endfor %}
+</div>
+{% endblock %}

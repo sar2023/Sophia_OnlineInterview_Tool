@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="jumbotron">
+  <h4 class="d-flex align-items-center justify-content-center" style="padding: 10px;">Rate the interview experience out of using options below</h4>
+  <div class="d-flex align-items-center justify-content-center">
+    <img src="{% static 'image/PSIMG.png' %}"
+      style="height: 250px;width: 500px;" alt="Sample image">
+    </div>
+    <hr class="my-4">
+    <div class="d-flex align-items-center justify-content-center">
+    <form method="post" action="">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primar badge badge-primary text-wrap" style="width: 8rem; height: 2rem;" value="Could beBetter" name="Could beBetter" >Could beBetter</button>
+      <button type="submit" class="btn btn-primar badge badge-primary text-wrap" style="width: 8rem; height: 2rem;" value= "Good" name="Good" >Good</button>
+      <button type="submit" class="btn btn-primar badge badge-primary text-wrap" style="width: 10rem; height: 2rem;" value="No improvements Needed" name="No im provements Needed" >No improvements Needed</button>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}
